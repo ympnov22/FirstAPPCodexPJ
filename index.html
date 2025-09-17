@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ナンバーズチャレンジ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" aria-live="polite">
+    <header class="app__header">
+      <h1>ナンバーズチャレンジ</h1>
+      <p>1〜100 の間で選ばれた数字をできるだけ少ない回数で当てよう。</p>
+    </header>
+
+    <section class="stats" aria-label="ゲームの記録">
+      <div class="stat">
+        <span class="stat__label">現在の試行回数</span>
+        <span class="stat__value" id="attemptCount">0</span>
+      </div>
+      <div class="stat">
+        <span class="stat__label">ベストスコア</span>
+        <span class="stat__value" id="bestScore">-</span>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="推測フォーム">
+      <form id="guessForm" class="guess-form" novalidate>
+        <label class="guess-form__label" for="guessInput">推測する数字</label>
+        <div class="guess-form__controls">
+          <input id="guessInput" name="guess" type="number" min="1" max="100" required placeholder="例: 42" autocomplete="off">
+          <button type="submit">判定</button>
+        </div>
+      </form>
+      <p id="feedback" class="feedback" role="status"></p>
+      <div class="panel__actions">
+        <button id="newRound" type="button">新しいラウンド</button>
+        <button id="resetBest" type="button" class="panel__link">ベストスコアをリセット</button>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="推測履歴">
+      <h2>履歴</h2>
+      <ul id="historyList" class="history" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
